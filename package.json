@@ -1,0 +1,21 @@
+{
+  "name": "basic-instagram",
+  "version": "1.0.0",
+  "description": "Basic Instagram functionalities for uploading and sharing images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -a localhost -p 8080"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinhtoantrung/basic-instagram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trinhtoantrung/basic-instagram/issues"
+  },
+  "homepage": "https://github.com/trinhtoantrung/basic-instagram#readme"
+}
