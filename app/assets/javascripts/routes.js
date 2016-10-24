@@ -4,5 +4,9 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 		templateUrl: '../assets/templates/test.html'
 	})
 
+	.when('/myinstagram/register', {
+		templateUrl: '../assets/templates/register/register.html'
+	})
+
 	.otherwise({redirectTo: '/myinstagram'});
 })
