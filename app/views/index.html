@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="BasicInstagram">
 <head>
 	<title>Basic Instagram</title>
 
@@ -8,8 +8,13 @@
 	<link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap/bootstrap-theme.css">
 </head>
 <body>
+	<!-- navigation bar --> 
+	<bi-navigation-bar></bi-navigation-bar>
 
-	<h1>Basic Instagram</h1>
+	<div ng-view></div>
+
+	<!-- footer -->
+	<bi-footer-bar></bi-footer-bar>
 
 </body>
 
@@ -20,4 +25,16 @@
 <script src="../assets/javascripts/vendors/angularjs/angular-resource.js"></script>
 <script src="../assets/javascripts/vendors/bootstrap/bootstrap.js"></script>
 
-</html>
+<!-- app -->
+<script src="../assets/javascripts/app.js"></script>
+<script src="../assets/javascripts/routes.js"></script>
+
+<!-- directives -->
+<script src="../assets/javascripts/directives/bi-navigation-bar.js"></script>
+<script src="../assets/javascripts/directives/bi-footer-bar.js"></script>
+
+<!-- services -->
+
+<!-- filters -->
+
+</html> 
