@@ -6,6 +6,7 @@
 	<!-- Load styles-->
 	<link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="../assets/styles/bootstrap/bootstrap-formhelpers.css">
 	<link rel="stylesheet" type="text/css" href="../assets/styles/main.css">
 </head>
 <body>
@@ -13,8 +14,31 @@
 	<bi-navigation-bar></bi-navigation-bar>
 
 	<div ng-view></div>
-	
+
 	<!-- test -->
+	<form>
+			<select class="form-control bfh-countries" data-country="US"></select>
+			<div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
+
+			<div class="bfh-selectbox" data-name="selectbox1">
+			  <div data-value="1">Option 1</div>
+			  <div data-value="2">Option 2</div>
+			  <div data-value="3">Option 3</div>
+			  <div data-value="4">Option 4</div>
+			  <div data-value="5">Option 5</div>
+			  <div data-value="6">Option 6</div>
+			  <div data-value="7">Option 7</div>
+			  <div data-value="8">Option 8</div>
+			  <div data-value="9">Option 9</div>
+			  <div data-value="10">Option 10</div>
+			  <div data-value="11">Option 11</div>
+			  <div data-value="12">Option 12</div>
+			  <div data-value="13">Option 13</div>
+			  <div data-value="14">Option 14</div>
+			  <div data-value="15">Option 15</div>
+			</div>
+
+	</form>
 
 	<!-- footer -->
 	<bi-footer-bar></bi-footer-bar>
@@ -30,6 +54,7 @@
 <script src="../assets/javascripts/vendors/angularjs/angular-resource.js"></script>
 
 <script src="../assets/javascripts/vendors/bootstrap/bootstrap.js"></script>
+<script src="../assets/javascripts/vendors/bootstrap/bootstrap-formhelpers.js"></script>
 
 <!-- app -->
 <script src="../assets/javascripts/app.js"></script>
