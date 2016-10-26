@@ -1,1 +1,147 @@
-Register
+	<!-- userName
+	firstName
+	lastName
+	email
+	phone
+	country
+	avatar -->
+<h1> Registration Form </h1>
+<form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>	
+	<fieldset class="form-group">
+		<label for="userName">User name</label>
+		<input class="form-control" 
+			type="text" name="userName" 
+			id="userName"  
+			ng-model="registrationData.userName"
+			required ng-maxlength="40">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.userName.$error.required">
+	        	Require!</span>
+	        <span class="error" ng-show="registrationForm.userName.$error.maxlength">
+	           	Too long!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="password">Password</label>
+		<input class="form-control" 
+			type="password" name="password" 
+			id="password"  
+			ng-model="registrationData.password"
+			required ng-maxlength="40">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.password.$error.required">
+	        	Require!</span>
+	        <span class="error" ng-show="registrationForm.password.$error.maxlength">
+	           	Too long!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="confirmPassword">Confirm password</label>
+		<input class="form-control" 
+			type="password" name="confirmPassword" 
+			id="confirmPassword"  
+			ng-model="confirmPassword"
+			required ng-maxlength="40"
+			compare-to="registrationData.password">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.confirmPassword.$error.required">
+	        	Require!</span>
+	        <span class="error" ng-show="registrationForm.confirmPassword.$error.maxlength">
+	           	Too long!!!</span>
+	       	<span class="error" ng-show="registrationForm.confirmPassword.$error.compareTo">
+	           	Password doesn't match!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="firstName">First name</label>
+		<input class="form-control" 
+			type="text" name="firstName" 
+			id="firstName"  
+			ng-model="registrationData.firstName"
+			required maxlength="40">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.firstName.$error.required">
+	        	Require!</span>
+	        <span class="error" ng-show="registrationForm.firstName.$error.maxlength">
+	           	Too long!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="lastName">Last name</label>
+		<input class="form-control" 
+			type="text" name="lastName" 
+			id="lastName"  
+			ng-model="registrationData.lastName"
+			required maxlength="40">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.lastName.$error.required">
+	        	Require!</span>
+	        <span class="error" ng-show="registrationForm.lastName.$error.maxlength">
+	           	Too long!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="email">Email</label>
+		<input class="form-control" 
+			type="email" name="email" 
+			id="email"  
+			ng-model="registrationData.email"
+			required>
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.email.$error.required">
+			Require!</span>
+			<span class="error" ng-show="registrationForm.email.$error.email">
+			Invalid Email!!!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="phone">Phone</label>
+		<input class="form-control" 
+			type="number" name="phone" 
+			id="phone"  
+			ng-model="registrationData.phone"
+			required="">
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.country.$error.required">
+	        	Require!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="country">Country</label>
+		<select ng-model="registrationData.country" name="country" id="country" required
+			class="form-control">
+	    	<option value="" class="form-control">-- Select a Country --</option>
+	    	<option ng-repeat="country in countries"
+	    		value="{{country.code}}">{{country.name}}</option>
+		</select>
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.country.$error.required">
+	        	Require!</span>
+        </div>
+	</fieldset>
+
+	<fieldset class="form-group">
+		<label for="avatar">Avatar</label>
+		<input class="form-control" 
+			type="text" name="avatar" 
+			id="avatar"  
+			ng-model="registrationData.avatar">
+	</fieldset>
+
+	<input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block login-button">
+</form>

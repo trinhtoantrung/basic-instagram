@@ -13,32 +13,20 @@
 	<!-- navigation bar -->
 	<bi-navigation-bar></bi-navigation-bar>
 
-	<div ng-view></div>
+	<div ng-view class="container-fluid"></div>
 
 	<!-- test -->
-	<form>
-			<select class="form-control bfh-countries" data-country="US"></select>
-			<div class="bfh-selectbox bfh-countries" data-country="US" data-flags="true"></div>
+	<!-- <form ng-controller="MyInstagramController">
+		<h1> Test </h1>
+		<select ng-model="country">
+	    	<option value="">-- Select a Country --</option>
+	    	<option ng-repeat="country in countries" value="{{country.code}}">{{country.name}}</option>
+		</select>
+	</form> -->
+	<!-- <form>
+		<input type="text" class="form-control bfh-phone" data-format="+1 (ddd) ddd-dddd">
+	</form> -->
 
-			<div class="bfh-selectbox" data-name="selectbox1">
-			  <div data-value="1">Option 1</div>
-			  <div data-value="2">Option 2</div>
-			  <div data-value="3">Option 3</div>
-			  <div data-value="4">Option 4</div>
-			  <div data-value="5">Option 5</div>
-			  <div data-value="6">Option 6</div>
-			  <div data-value="7">Option 7</div>
-			  <div data-value="8">Option 8</div>
-			  <div data-value="9">Option 9</div>
-			  <div data-value="10">Option 10</div>
-			  <div data-value="11">Option 11</div>
-			  <div data-value="12">Option 12</div>
-			  <div data-value="13">Option 13</div>
-			  <div data-value="14">Option 14</div>
-			  <div data-value="15">Option 15</div>
-			</div>
-
-	</form>
 
 	<!-- footer -->
 	<bi-footer-bar></bi-footer-bar>
@@ -63,10 +51,14 @@
 <!-- directives -->
 <script src="../assets/javascripts/directives/bi-navigation-bar.js"></script>
 <script src="../assets/javascripts/directives/bi-footer-bar.js"></script>
-<script src="../assets/javascripts/directives/bi-registration-form.js"></script>
+<script src="../assets/javascripts/directives/bi-check-pw-match.js"></script>
 
 <!-- services -->
 <script src="../assets/javascripts/services/RegistrationData.js"></script>
+
+<!-- controllers -->
+<script src="../assets/javascripts/controllers/MyInstagramController.js"></script>
+<script src="../assets/javascripts/controllers/MyRegisterController.js"></script>
 
 <!-- filters -->
 
