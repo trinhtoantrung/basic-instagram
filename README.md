@@ -11,3 +11,9 @@ Basic Instagram functionalities for uploading and sharing images
 
 # Issues
 1. Picker, dropdowns cannot work well with modal dialog -> do not design complicated modal dialog (picker, choose image, ..)
+
+# Nodejs server
+Dependencies <br>
+npm install express --save
+npm install body-parser --save
+npm install lodash --save
