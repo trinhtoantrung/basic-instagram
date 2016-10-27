@@ -4,8 +4,11 @@
 	email
 	phone
 	country
-	avatar -->
+	avatar -->	
 <h1> Registration Form </h1>
+
+</form>
+
 <form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>	
 	<fieldset class="form-group">
 		<label for="userName">User name</label>
@@ -13,13 +16,18 @@
 			type="text" name="userName" 
 			id="userName"  
 			ng-model="registrationData.userName"
-			required ng-maxlength="40">
+			required ng-maxlength="40"
+			checkuser>
 
 		<div role="alert">
 			<span class="error" ng-show="registrationForm.userName.$error.required">
 	        	Require!</span>
 	        <span class="error" ng-show="registrationForm.userName.$error.maxlength">
 	           	Too long!!!</span>
+	        <span class="error" ng-show="registrationForm.userName.$pending.checkuser">
+	           	Checking if this name is available...</span>
+	        <span class="error" ng-show="registrationForm.userName.$error.checkuser">
+	           	This username is already taken!</span>
         </div>
 	</fieldset>
 
@@ -143,5 +151,5 @@
 			ng-model="registrationData.avatar">
 	</fieldset>
 
-	<input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block login-button">
+	<input type="submit" value="{{isSubmitting ? 'Submiting...' : 'Submit'}}" class="btn btn-primary btn-lg btn-block login-button" ng-disabled="isSubmitting">
 </form>

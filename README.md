@@ -14,6 +14,6 @@ Basic Instagram functionalities for uploading and sharing images
 
 # Nodejs server
 Dependencies <br>
-npm install express --save
-npm install body-parser --save
-npm install lodash --save
+npm install express --save <br>
+npm install body-parser --save <br>
+npm install lodash --save <br>

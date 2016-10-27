@@ -12,8 +12,6 @@ fs.readFile(databaseUrl, (err, data) => {
 });
 
 var updateToDatabase = function(newUsers) {
-
-  // var configJSON = JSON.stringify(config);
   fs.writeFile(databaseUrl, JSON.stringify(newUsers), (err) => {
     if (err) throw err;
     console.log('Saved Users to database');
@@ -21,9 +19,9 @@ var updateToDatabase = function(newUsers) {
 }
 
 module.exports = {
-  get: function(email) {
+  get: function(key, value) {
     return _.find(users, function(user){
-      return user.email === email;
+      return user[key] === value;
     });
   },
 

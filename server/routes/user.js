@@ -4,12 +4,16 @@ var User = require('../models/users');
 
 module.exports = function(app){
   app.get('/users', function(req, res){
+    console.log("get all users");
     res.json(User.all());
   });
 
-  app.get('/users/:email', function(req, res){
-    var email = req.params.email;
-    res.json(User.get(email) || {});
+  app.get('/users/:key/:value', function(req, res){
+    console.log("find user by key & value");
+    var key = req.params.key;
+    var value = req.params.value;
+    console.log(key, value);
+    res.json(User.get(key, value) || {});
   });
 
   app.post('/users', function(req, res) {

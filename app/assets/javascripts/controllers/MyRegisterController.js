@@ -1,7 +1,9 @@
-angular.module('BasicInstagram').controller('MyRegisterController', function($scope, $http, $location){
+angular.module('BasicInstagram').controller('MyRegisterController', function($scope, $http, $location, User){
 	console.log("Load MyRegisterController");
 
 	$scope.countries = [];
+	$scope.registrationData = new User();
+  	$scope.isSubmitting = false;
 
 	$http({
 		method: 'GET',
@@ -13,12 +15,15 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 
 	});
 
-	// TODO: should using new instance
-	$scope.registrationData = {}
 	$scope.submitRegister = function(registrationData) {
 		console.log("Submit registration form", registrationData);
 
-		// save note using factory and back to main
-		$location.path("/myinstagram");
+		$scope.isSubmitting = true;
+
+	    registrationData.$save().then(function() {
+	    	$location.path("/myinstagram");
+	    }).finally(function () {
+	    	$scope.isSubmitting = false;
+	    });
 	}
 })
