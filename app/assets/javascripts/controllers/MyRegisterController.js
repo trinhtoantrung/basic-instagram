@@ -1,4 +1,4 @@
-angular.module('BasicInstagram').controller('MyRegisterController', function($scope, $http, $location, User){
+angular.module('BasicInstagram').controller('MyRegisterController', function($scope, $http, $location, User, FileUpload){
 	console.log("Load MyRegisterController");
 
 	$scope.countries = [];
@@ -14,6 +14,15 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 	}, function error(response) {
 
 	});
+
+	$scope.uploadFile = function(){
+       var file = $scope.registrationData.avatar;
+       
+       console.log('file is ', file);
+       
+       var uploadUrl = "/fileUpload";
+       FileUpload.uploadFileToUrl(file, uploadUrl);
+    };
 
 	$scope.submitRegister = function(registrationData) {
 		console.log("Submit registration form", registrationData);

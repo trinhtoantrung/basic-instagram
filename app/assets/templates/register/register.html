@@ -7,9 +7,18 @@
 	avatar -->	
 <h1> Registration Form </h1>
 
-</form>
+<form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>
+	<input type = "file" filedata = "registrationData.avatar"/>
+    <button ng-click = "uploadFile()">upload me</button>
 
-<form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>	
+	<fieldset class="form-group">
+		<img src="../assets/styles/img/avatar.png" class="img-responsive">
+		<label class="btn btn-primary" for="chooseAvatar">
+    		<input id="chooseAvatar" name="chooseAvatar" type="file" style="display:none;">
+	    	Choose your avatar
+		</label>
+	</fieldset>
+
 	<fieldset class="form-group">
 		<label for="userName">User name</label>
 		<input class="form-control" 
@@ -124,8 +133,7 @@
 			type="number" name="phone" 
 			id="phone"  
 			ng-model="registrationData.phone"
-			required="">
-
+			required>
 		<div role="alert">
 			<span class="error" ng-show="registrationForm.country.$error.required">
 	        	Require!</span>
