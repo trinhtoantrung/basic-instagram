@@ -1,17 +1,17 @@
-angular.module('BasicInstagram').directive('checkuser', function($q, $timeout, User) {
+angular.module('BasicInstagram').directive('checkemail', function($q, $timeout, User) {
 	return {
 	    require: 'ngModel',
 	    link: function(scope, elm, attrs, ctrl) {
 
-	      ctrl.$asyncValidators.checkuser = function(modelValue, viewValue) {
+	      ctrl.$asyncValidators.checkemail = function(modelValue, viewValue) {
 
 	        if (ctrl.$isEmpty(modelValue)) {
 	          // consider empty model valid
 	          return $q.when();
 	        }
 
-	        console.log("Check username");
-	        var user = User.get({key: 'userName', value: modelValue});
+	        console.log("Check email");
+	        var user = User.get({key: 'email', value: modelValue});
 
 	        var def = $q.defer();
 

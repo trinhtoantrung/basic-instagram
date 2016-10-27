@@ -25,7 +25,7 @@
 	        <span class="error" ng-show="registrationForm.userName.$error.maxlength">
 	           	Too long!!!</span>
 	        <span class="error" ng-show="registrationForm.userName.$pending.checkuser">
-	           	Checking if this name is available...</span>
+	           	Checking if this username is available...</span>
 	        <span class="error" ng-show="registrationForm.userName.$error.checkuser">
 	           	This username is already taken!</span>
         </div>
@@ -104,13 +104,17 @@
 			type="email" name="email" 
 			id="email"  
 			ng-model="registrationData.email"
-			required>
+			required checkemail>
 
 		<div role="alert">
 			<span class="error" ng-show="registrationForm.email.$error.required">
 			Require!</span>
 			<span class="error" ng-show="registrationForm.email.$error.email">
 			Invalid Email!!!</span>
+			<span class="error" ng-show="registrationForm.email.pending.checkemail">
+			Checking if this email is available...</span>
+			<span class="error" ng-show="registrationForm.email.$error.checkemail">
+			This email is already taken!</span>
         </div>
 	</fieldset>
 
