@@ -23,7 +23,7 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
        console.log('file is ' );
        console.dir(file);
        
-       var uploadUrl = "/fileUpload";
+       var uploadUrl = "http://localhost:8383/file_upload";
        FileUpload.uploadFileToUrl(file, uploadUrl);
     };
 
