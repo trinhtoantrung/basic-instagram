@@ -5,6 +5,8 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 	$scope.registrationData = new User();
   	$scope.isSubmitting = false;
 
+  	var avatar = "test";
+
 	$http({
 		method: 'GET',
 		url: '../assets/json/countries.json'
@@ -16,9 +18,10 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 	});
 
 	$scope.uploadFile = function(){
-       var file = $scope.registrationData.avatar;
-       
-       console.log('file is ', file);
+       var file = $scope.myFile;
+               
+       console.log('file is ' );
+       console.dir(file);
        
        var uploadUrl = "/fileUpload";
        FileUpload.uploadFileToUrl(file, uploadUrl);

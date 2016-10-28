@@ -13,7 +13,7 @@ angular.module('BasicInstagram').directive('biUploadAvatar', function ($compile)
 
 				reader.addEventListener("load", function () {
 					attrs.$set('imgurl', reader.result);
-        			$compile(element)(scope);
+                    $compile(element)(scope);
 				}, false);
 
 				if (file) {

@@ -8,11 +8,13 @@
 <h1> Registration Form </h1>
 
 <form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>
- 	<bi-upload-avatar imgurl="../assets/styles/img/avatar.png"></bi-upload-avatar>
+
 
  	<fieldset class="form-group">
- 		<upload-avatar></upload-avatar>
+ 		<bi-upload-avatar imgurl="../assets/styles/img/avatar.png" filemode="myFile"></bi-upload-avatar>
  	</fieldset>
+
+ 	<button class="btn btn-primary" ng-click="uploadFile()">Upload image</button>
 
 	<fieldset class="form-group">
 		<label for="userName">User name</label>
