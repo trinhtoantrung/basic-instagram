@@ -4,7 +4,9 @@
 	email
 	phone
 	country
-	avatar -->	
+	avatar
+  userName
+  -->	
 <h1> Registration Form </h1>
 
 <form name="registrationForm" ng-submit="registrationForm.$valid && submitRegister(registrationData)" novalidate>
@@ -18,9 +20,9 @@
 
 	<fieldset class="form-group">
 		<label for="userName">User name</label>
-		<input class="form-control" 
-			type="text" name="userName" 
-			id="userName"  
+		<input class="form-control"
+			type="text" name="userName"
+			id="userName"
 			ng-model="registrationData.userName"
 			required ng-maxlength="40"
 			checkuser>
@@ -39,9 +41,9 @@
 
 	<fieldset class="form-group">
 		<label for="password">Password</label>
-		<input class="form-control" 
-			type="password" name="password" 
-			id="password"  
+		<input class="form-control"
+			type="password" name="password"
+			id="password"
 			ng-model="registrationData.password"
 			required ng-maxlength="40">
 
@@ -55,9 +57,9 @@
 
 	<fieldset class="form-group">
 		<label for="confirmPassword">Confirm password</label>
-		<input class="form-control" 
-			type="password" name="confirmPassword" 
-			id="confirmPassword"  
+		<input class="form-control"
+			type="password" name="confirmPassword"
+			id="confirmPassword"
 			ng-model="confirmPassword"
 			required ng-maxlength="40"
 			compare-to="registrationData.password">
@@ -74,9 +76,9 @@
 
 	<fieldset class="form-group">
 		<label for="firstName">First name</label>
-		<input class="form-control" 
-			type="text" name="firstName" 
-			id="firstName"  
+		<input class="form-control"
+			type="text" name="firstName"
+			id="firstName"
 			ng-model="registrationData.firstName"
 			required maxlength="40">
 
@@ -90,9 +92,9 @@
 
 	<fieldset class="form-group">
 		<label for="lastName">Last name</label>
-		<input class="form-control" 
-			type="text" name="lastName" 
-			id="lastName"  
+		<input class="form-control"
+			type="text" name="lastName"
+			id="lastName"
 			ng-model="registrationData.lastName"
 			required maxlength="40">
 
@@ -106,9 +108,9 @@
 
 	<fieldset class="form-group">
 		<label for="email">Email</label>
-		<input class="form-control" 
-			type="email" name="email" 
-			id="email"  
+		<input class="form-control"
+			type="email" name="email"
+			id="email"
 			ng-model="registrationData.email"
 			required checkemail>
 
@@ -126,9 +128,9 @@
 
 	<fieldset class="form-group">
 		<label for="phone">Phone</label>
-		<input class="form-control" 
-			type="number" name="phone" 
-			id="phone"  
+		<input class="form-control"
+			type="number" name="phone"
+			id="phone"
 			ng-model="registrationData.phone"
 			required>
 		<div role="alert">
@@ -154,9 +156,9 @@
 
 <!-- 	<fieldset class="form-group">
 		<label for="avatar">Avatar</label>
-		<input class="form-control" 
-			type="text" name="avatar" 
-			id="avatar"  
+		<input class="form-control"
+			type="text" name="avatar"
+			id="avatar"
 			ng-model="registrationData.avatar">
 	</fieldset> -->
 
