@@ -1,9 +1,10 @@
-angular.module('BasicInstagram').controller('MyRegisterController', function($scope, $http, $location, User, FileUpload){
+angular.module('BasicInstagram').controller('MyRegisterController',
+	function($scope, $http, $location, User, FileUpload){
 	console.log("Load MyRegisterController");
 
 	$scope.countries = [];
 	$scope.registrationData = new User();
-  	$scope.isSubmitting = false;
+  $scope.isSubmitting = false;
 
   	var avatar = "test";
 
@@ -19,11 +20,11 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 
 	$scope.uploadFile = function(){
        var file = $scope.myFile;
-               
+
        console.log('file is ' );
        console.dir(file);
-       
-       var uploadUrl = "http://localhost:8383/file_upload";
+
+       var uploadUrl = "http://localhost:8383/fileupload";
        FileUpload.uploadFileToUrl(file, uploadUrl);
     };
 
@@ -38,4 +39,5 @@ angular.module('BasicInstagram').controller('MyRegisterController', function($sc
 	    	$scope.isSubmitting = false;
 	    });
 	}
+
 })
