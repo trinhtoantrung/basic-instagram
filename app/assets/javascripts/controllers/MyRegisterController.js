@@ -6,7 +6,7 @@ angular.module('BasicInstagram').controller('MyRegisterController',
 	$scope.registrationData = new User();
   $scope.isSubmitting = false;
 
-  	var avatar = "test";
+  var avatar = "test";
 
 	$http({
 		method: 'GET',
