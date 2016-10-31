@@ -25,15 +25,13 @@ angular.module('BasicInstagram').controller('MyRegisterController',
        console.log('file is ' );
        console.dir(file);
 
-			 var userName = "trung";
-			 var timestamp = new Date().getUTCMilliseconds();
+		var userName = "trung";
+		var timestamp = new Date().getUTCMilliseconds();
 
        FileUpload.uploadFileToUrl(file, userName, timestamp);
     };
 
 	$scope.submitRegister = function(registrationData) {
-
-
 		if ($scope.myFile) {
 			var timestamp = new Date().getUTCMilliseconds();
 			registrationData.avatar = "./uploads/" + registrationData.userName + "_" +
@@ -42,13 +40,14 @@ angular.module('BasicInstagram').controller('MyRegisterController',
 
 		console.log("Submit registration form", registrationData);
 
-		// $scope.isSubmitting = true;
-		//
-    // registrationData.$save().then(function() {
-    // 	$location.path("/myinstagram");
-    // }).finally(function () {
-    // 	$scope.isSubmitting = false;
-    // });
+		$scope.isSubmitting = true;
+		
+	    registrationData.$save().then(function() {
+	    	$location.path("/myinstagram/login");
+	    	$scope.uploadFile();
+	    }).finally(function () {
+	    	$scope.isSubmitting = false;
+	    });
 	}
 
 })

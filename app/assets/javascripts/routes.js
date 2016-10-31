@@ -19,6 +19,7 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 	})
 
 	.otherwise({redirectTo: '/myinstagram'});
+
 }).run(function($rootScope, UserLogin, $location) {
 	$rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
 		console.log("Checking user login - isLogged", UserLogin.isLogged);
@@ -26,7 +27,7 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 		if (!UserLogin.isLogged && nextRoute.access === false) {
 			console.log("Go to login page");
 			event.preventDefault();
-			$location.path('myinstagram/login');
+			$location.path('/myinstagram/login');
 		}
 	});
 });

@@ -12,15 +12,20 @@
 
 
 <form name="loginForm" ng-submit="loginForm.$valid && login()" novalidate>
+    <div class="alert alert-danger alert-dismissible" role="alert" ng-show="loginError">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Error!</strong> Please login again!
+    </div>
+
     <h2> Please login </h2>
 
     <fieldset class="form-group">
-      <input type="text" class="form-control" name="userName" placeholder="User name" required="" autofocus=""
+      <input type="text" class="form-control" name="userName" placeholder="User name" required
       ng-model="data.userName"/>
     </fieldset>
 
     <fieldset class="form-group">
-      <input type="password" class="form-control" name="password" placeholder="Password" required=""
+      <input type="password" class="form-control" name="password" placeholder="Password" required
       ng-model="data.password"/>
     </fieldset>
 

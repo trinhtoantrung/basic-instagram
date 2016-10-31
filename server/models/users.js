@@ -8,6 +8,7 @@ var users = [];
 fs.readFile(databaseUrl, (err, data) => {
   if (err) throw err;
   users = JSON.parse(data);
+  console.log(users);
   console.log("Load users from database");
 });
 
@@ -34,5 +35,11 @@ module.exports = {
     console.log("Save user", user);
     updateToDatabase(users);
     return user;
+  },
+
+  checkUserLogin: function(userName, password) {
+    return _.find(users, function(user) {
+      return user["userName"] === userName && user["password"] === password;
+    });
   }
 }

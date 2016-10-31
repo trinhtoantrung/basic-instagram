@@ -16,9 +16,8 @@ module.exports = function(app){
     res.json(User.get(key, value) || {});
   });
 
-  app.get('users/checkUserLogin', function(req, res) {
-    console.log(req.body);
-    res.json("check user login response");
+  app.get('/users/checkUserLogin', function(req, res) {
+    res.json(User.checkUserLogin(req.query.userName, req.query.password) || {});
   });
 
   app.post('/users', function(req, res) {
