@@ -11,7 +11,7 @@ module.exports = function(app){
 
     var fileName = req.body.userName + "_" + req.body.timestamp;
 
-    var file = "./uploads/"  + fileName;
+    var file = "./uploads/"  + fileName + ".jpg";
     fs.readFile(req.file.path, function (err, data) {
       fs.writeFile(file, data, function (err) {
          if( err ){
@@ -23,7 +23,7 @@ module.exports = function(app){
                };
             }
          console.log(response);
-         res.end( JSON.stringify(response));
+         res.end(JSON.stringify(response));
       });
     });
   })

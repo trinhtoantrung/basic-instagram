@@ -1,12 +1,15 @@
 angular.module('BasicInstagram').controller('MyRegisterController',
-	function($scope, $http, $location, User, FileUpload){
+	function($scope, $http, $location, User, FileUpload, UserLogin){
 	console.log("Load MyRegisterController");
+
+	console.log(UserLogin.userName);
+	UserLogin.userName = "register";
 
 	$scope.countries = [];
 	$scope.registrationData = new User();
-  $scope.isSubmitting = false;
+  	$scope.isSubmitting = false;
 
-  var avatar = "test";
+  	var avatar = "test";
 
 	$http({
 		method: 'GET',
@@ -31,20 +34,23 @@ angular.module('BasicInstagram').controller('MyRegisterController',
        FileUpload.uploadFileToUrl(file, userName, timestamp);
     };
 
-	$scope.submitRegister = function(registrationData) {
+	$scope.submitRegister = function() {
 		if ($scope.myFile) {
+			console.log("Upload avatar")
 			var timestamp = new Date().getUTCMilliseconds();
-			registrationData.avatar = "./uploads/" + registrationData.userName + "_" +
-				timestamp;
+			$scope.registrationData.avatar = "/images/" + $scope.registrationData.userName + "_" +
+				timestamp + ".jpg";
+
+			FileUpload.uploadFileToUrl($scope.myFile, $scope.registrationData.userName, timestamp);
 		}
 
-		console.log("Submit registration form", registrationData);
+		console.log("Submit registration form", $scope.registrationData);
 
 		$scope.isSubmitting = true;
-		
-	    registrationData.$save().then(function() {
+		console.log($scope.registrationData.avatar);
+
+	    $scope.registrationData.$save().then(function() {
 	    	$location.path("/myinstagram/login");
-	    	$scope.uploadFile();
 	    }).finally(function () {
 	    	$scope.isSubmitting = false;
 	    });

@@ -1,6 +1,9 @@
 angular.module("BasicInstagram").controller("MyLoginController", function($scope, UserLogin, $location) {
   console.log("MyLoginController loaded");
 
+  console.log(UserLogin.userName);
+  UserLogin.userName = "login";
+
   $scope.loginError = false;
 
   $scope.login = function() {
