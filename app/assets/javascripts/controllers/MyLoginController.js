@@ -17,13 +17,16 @@ angular.module("BasicInstagram").controller("MyLoginController", function($scope
   			console.log("Login successfully");
   			UserLogin.userName = user.userName;
   			UserLogin.isLogged = true;
+        UserLogin.avatar = UserLogin.urlService + user.avatar;
   			UserLogin.rememberMe = $scope.rememberMe;
+
+        console.log(UserLogin);
+
   			$location.path("/myinstagram");
   		} else {
   			$scope.loginError = true;
   		}
 
   	});
-
   }
 });

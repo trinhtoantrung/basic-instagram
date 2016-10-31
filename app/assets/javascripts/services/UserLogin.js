@@ -4,7 +4,9 @@ angular.module("BasicInstagram").factory('UserLogin', function UserloginFactory(
   return {
     userName: '',
     isLogged: false,
+    avatar: '',
     rememberMe: false,
+    urlService: 'http://localhost:8383',
     userLoginService: $resource('/users/checkUserLogin')
   }
 });
