@@ -26,6 +26,19 @@ module.exports = {
     });
   },
 
+  update: function(user) {
+    var updateUser;
+    for(var i=0, l=users.length; i < l; i++) {
+      if(users[i].id === user.id){
+        _.assign(users[i], user);
+        updateUser = users[i];
+        break;
+      }
+    }
+    updateToDatabase(users);
+    return updateUser;
+  },
+
   all: function() {
     return users;
   },

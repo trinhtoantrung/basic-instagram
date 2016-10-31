@@ -1,3 +1,80 @@
-<form name="profileForm">
+<form name="profileForm" ng-submit="profileForm.$valid && updateProfile()" novalidate>
 	<h2>My Profile </h2>
+	
+	<fieldset class="form-group">
+ 		<bi-upload-avatar imgurl="{{userProfile.avatar}}" filemode="myFile"></bi-upload-avatar>
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="userName">User name</label>
+ 		<input type="text" id="userName" name="userName" class="form-control"
+ 			ng-model="userProfile.userName" readonly>
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="email">Email</label>
+ 		<input type="email" id="email" name="email" class="form-control"
+ 			ng-model="userProfile.email" readonly>
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="oldPassword">Old password</label>
+ 		<input type="oldPassword" id="oldPassword" name="oldPassword" class="form-control"
+ 			ng-model="oldPassword">
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="newPassword">New password</label>
+ 		<input type="password" id="newPassword" name="newPassword" class="form-control"
+ 			ng-model="newPassword">
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="confirmNewPassword">Confirm new password</label>
+ 		<input type="password" id="confirmNewPassword" name="confirmNewPassword" class="form-control"
+ 			ng-model="confirmNewPassword"
+ 			compare-to="newPassword">
+
+ 		<div role="alert">
+	       	<span class="error" ng-show="confirmNewPassword.$error.compareTo">
+	           	Password doesn't match!!!</span>
+        </div>
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="firstName">First name</label>
+ 		<input type="text" id="firstName" name="firstName" class="form-control"
+ 			ng-model="userProfile.firstName">
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="lastName">Last name</label>
+ 		<input type="text" id="lastName" name="lastName" class="form-control"
+ 			ng-model="userProfile.lastName">
+ 	</fieldset>
+
+ 	<fieldset class="form-group">
+ 		<label for="phone">Phone</label>
+ 		<input type="phone" id="phone" name="phone" class="form-control"
+ 			ng-model="userProfile.phone">
+ 	</fieldset>
+
+ 	<<fieldset class="form-group">
+		<label for="country">Country</label>
+		<select ng-model="userProfile.country" name="country" id="country" required
+			class="form-control">
+	    	<option value="" class="form-control">-- Select a Country --</option>
+	    	<option ng-repeat="country in countries"
+	    		value="{{country.code}}">{{country.name}}</option>
+		</select>
+
+		<div role="alert">
+			<span class="error" ng-show="registrationForm.country.$error.required">
+	        	Require!</span>
+        </div>
+	</fieldset>
+
+ 	<input type="submit" value="{{isSubmitting ? 'Updating...' : 'Update'}}" class="btn btn-primary btn-lg" ng-disabled="isSubmitting">
+
+ 	<a href="#/myinstagram" type="button" class="btn btn-default btn-lg">Cancel</a>
 </form>

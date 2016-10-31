@@ -50,9 +50,9 @@ angular.module('BasicInstagram').controller('MyRegisterController',
 		console.log($scope.registrationData.avatar);
 
 	    $scope.registrationData.$save().then(function() {
-	    	$location.path("/myinstagram/login");
 	    }).finally(function () {
 	    	$scope.isSubmitting = false;
+	    	$location.path("/myinstagram/login");
 	    });
 	}
 
