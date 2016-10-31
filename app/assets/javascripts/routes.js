@@ -18,6 +18,12 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 		access: true
 	})
 
+	.when('/myinstagram/profile', {
+		templateUrl: '../assets/templates/profile/profile.html',
+		controller: 'MyProfileController',
+		access: false
+	})
+
 	.otherwise({redirectTo: '/myinstagram'});
 
 }).run(function($rootScope, UserLogin, $location) {
