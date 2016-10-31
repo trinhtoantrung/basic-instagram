@@ -9,10 +9,8 @@ module.exports = function(app){
   });
 
   app.get('/users/:key/:value', function(req, res){
-    console.log("find user by key & value");
     var key = req.params.key;
     var value = req.params.value;
-    console.log(key, value);
     res.json(User.get(key, value) || {});
   });
 

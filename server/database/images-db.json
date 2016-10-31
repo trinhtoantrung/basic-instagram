@@ -1,0 +1,11 @@
+[{"url": "/images/pokemon1.jpg",
+  "author": "pokemon1",
+  "title": "Pikachuuuuu! Gotcha!",
+  "category": "pokemon",
+  "date": "1477921790305",
+  "likes": ["pokemon1", "pokemon2", "pokemon3"],
+  "dislikes":["gundam1", "gundam2", "gundam3"],
+  "comments":[{"content":"@@ You are so luckly!", "author": "pokemon1", "date": "1477925556019"},
+    {"content": "<3 :3 :v", "author": "pokemon2", "date": "1477925654103"},
+    {"content": "Wow, so beautiful!", "author": "pokemon3", "date": "1477925715434"}]
+}]

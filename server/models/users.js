@@ -8,7 +8,6 @@ var users = [];
 fs.readFile(databaseUrl, (err, data) => {
   if (err) throw err;
   users = JSON.parse(data);
-  console.log(users);
   console.log("Load users from database");
 });
 

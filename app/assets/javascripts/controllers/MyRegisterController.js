@@ -2,14 +2,11 @@ angular.module('BasicInstagram').controller('MyRegisterController',
 	function($scope, $http, $location, User, FileUpload, UserLogin){
 	console.log("Load MyRegisterController");
 
-	console.log(UserLogin.userName);
-	UserLogin.userName = "register";
-
 	$scope.countries = [];
 	$scope.registrationData = new User();
-  	$scope.isSubmitting = false;
+  $scope.isSubmitting = false;
 
-  	var avatar = "test";
+  var avatar = "test";
 
 	$http({
 		method: 'GET',

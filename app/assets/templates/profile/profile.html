@@ -1,6 +1,6 @@
 <form name="profileForm" ng-submit="profileForm.$valid && updateProfile()" novalidate>
 	<h2>My Profile </h2>
-	
+
 	<fieldset class="form-group">
  		<bi-upload-avatar imgurl="{{userProfile.avatar}}" filemode="myFile"></bi-upload-avatar>
  	</fieldset>
@@ -59,7 +59,7 @@
  			ng-model="userProfile.phone">
  	</fieldset>
 
- 	<<fieldset class="form-group">
+ 	<fieldset class="form-group">
 		<label for="country">Country</label>
 		<select ng-model="userProfile.country" name="country" id="country" required
 			class="form-control">

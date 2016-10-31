@@ -11,6 +11,7 @@ app.get('/', function(req, res){
 
 // Load routes
 require('./routes/user')(app); //user routes
-require('./routes/file')(app); //user routes
+require('./routes/file')(app); //upload file routes
+require('./routes/image')(app); //upload file routes
 
 module.exports = app;

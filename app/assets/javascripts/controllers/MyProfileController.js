@@ -22,8 +22,7 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 	});
 
 	$scope.updateProfile = function() {
-		console.log("Update profile..");
-
+		$scope.isSubmitting = true;
 		if ($scope.myFile) {
 			var timestamp = new Date().getUTCMilliseconds();
 			$scope.userProfile.avatar = "/images/" + $scope.userProfile.userName + "_" +
@@ -33,14 +32,14 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 			FileUpload.uploadFileToUrl($scope.myFile, $scope.userProfile.userName, timestamp);
 		}
 
+		console.log("Update profile..");
 		console.log("Submit updateProfile form", $scope.userProfile);
 
-		$scope.isSubmitting = true;
+    $scope.userProfile.$update().then(function() {
 
-	    $scope.userProfile.$update().then(function() {
-	    }).finally(function () {
-	    	$scope.isSubmitting = false;
-	    	$location.path("/myinstagram/login");
-	    });
+    }).finally(function () {
+    	$scope.isSubmitting = false;
+    	$location.path("/myinstagram");
+    });
 	}
 });
