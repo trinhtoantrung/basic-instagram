@@ -7,7 +7,7 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 
 	User.get({key: 'userName', value: UserLogin.userName}).$promise.then(function(user) {
 		$scope.userProfile = user;
-		$scope.avatarUrl = UserLogin.urlService + $scope.userProfile["avatar"];
+		$scope.avatarUrl = $scope.userProfile["avatar"];
 		console.log($scope.avatarUrl);
 	});
 
