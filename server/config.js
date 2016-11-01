@@ -5,7 +5,8 @@ module.exports = function(app, express) {
   // and stylesheets to be loaded as expected. You would normally use something like
   // nginx for this, but this makes for a simpler demo app to just let express do it.
   app.use("/", express.static("app/"));
-  app.use("/images", express.static("uploads/"));
+  app.use("/avatars", express.static("uploads/avatars/"));
+  app.use("/images", express.static("uploads/images/"));
 
   // Set the view directory, this enables us to use the .render method inside routes
   app.set('views', __dirname + '/../app/views');

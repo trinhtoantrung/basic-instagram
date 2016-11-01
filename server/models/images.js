@@ -9,8 +9,7 @@ fs.readFile(databaseUrl, (err, data) => {
   if (err) throw err;
   console.log("Load images from database");
   images = JSON.parse(data);
-  console.log(images);
-
+  // console.log(images);
   // console.log(images[0].dislikes);
   // console.log(images[0].comments[0].content);
 });

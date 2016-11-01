@@ -25,7 +25,7 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 		$scope.isSubmitting = true;
 		if ($scope.myFile) {
 			var timestamp = new Date().getUTCMilliseconds();
-			$scope.userProfile.avatar = "/images/" + $scope.userProfile.userName + "_" +
+			$scope.userProfile.avatar = "/avatars/" + $scope.userProfile.userName + "_" +
 				timestamp + ".jpg";
 
 			console.log("Upload new avatar", $scope.userProfile.avatar);
