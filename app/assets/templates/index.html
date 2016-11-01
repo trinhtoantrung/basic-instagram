@@ -3,18 +3,27 @@
 <nav class="navbar navbar-default">
 	<div class="navbar-form navbar-left">
 		<a class="btn btn-primary" href="#/myinstagram/upload">Share new image</a>
-        <div class="input-group">
-	      	<div class="input-group-btn">
-		        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-							aria-expanded="false">Category: {{category}} <span class="caret"></span></button>
-		        <ul class="dropdown-menu">
-							<li><a ng-click="chooseCategory('All')">All</a></li>
-							<li ng-repeat="category in categories"><a ng-click="chooseCategory(category)">{{category}}</a></li>
-		        </ul>
-	      	</div>
-	      	<input type="text" class="form-control" placeholder="Search all" ng-model="search.title">
-	    </div>
-    </div>
+    <div class="input-group">
+    	<div class="input-group-btn">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false">Category: {{category}} <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+					<li><a ng-click="chooseCategory('All')">All</a></li>
+					<li ng-repeat="category in categories"><a ng-click="chooseCategory(category)">{{category}}</a></li>
+        </ul>
+    	</div>
+    	<input type="text" class="form-control" placeholder="Search title" ng-model="search.title">
+  	</div>
+  </div>
+
+	<p class="navbar-text">Sort by</p>
+<div class="input-group-btn">
+	<button type="button" class="btn btn-default navbar-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+		aria-expanded="false">{{sort[0]}}: {{sort[1]}} <span class="caret"></span></button>
+	<ul class="dropdown-menu">
+		<li ng-repeat="sort in sorts"><a> {{sort[0]}}: {{sort[1]}}</a></li>
+	</ul>
+</div>
 </nav>
 
 <div class="row">

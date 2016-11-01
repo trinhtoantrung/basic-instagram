@@ -8,6 +8,9 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	$scope.categories = Categories.data;
 	$scope.category = "All";
 
+	$scope.sorts = [["category", "ASC"], ["category", "DESC"], ["date", "ASC"], ["date", "DESC"]];
+	$scope.sort = $scope.sorts[0];
+
 	$scope.chooseCategory = function(pCategory) {
 		$scope.category = pCategory;
 	}
