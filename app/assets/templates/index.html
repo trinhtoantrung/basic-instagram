@@ -1,20 +1,32 @@
 <h1>Basic Instagram</h1>
 
-<!-- <div class="row">
-	<a class="btn btn-primary" href="#/myinstagram/upload">Share new image</a>
-</div> -->
-
 <nav class="navbar navbar-default">
 	<div class="navbar-form navbar-left">
 		<a class="btn btn-primary" href="#/myinstagram/upload">Share new image</a>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" ng-model="search.input.$">
-        </div>
+  <!--       <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" ng-model="search.$">
+        </div> -->
+
+        <div class="input-group">
+	      	<div class="input-group-btn">
+		        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{searchField}} <span class="caret"></span></button>
+		        <ul class="dropdown-menu">
+		          <li><a ng-click="searchAll()">All</a></li>
+		          <li><a ng-click="searchCategory()">Category</a></li>
+		          <li><a ng-click="searchAuthor()">Author</a></li>
+		        </ul>
+	      	</div><!-- /btn-group -->
+	      	<input ng-show="isAllSearch" type="text" class="form-control" placeholder="Search all" ng-model="search.$">
+	      	<input ng-show="isCategorySearch" type="text" class="form-control" placeholder="Search category" ng-model="search.category">
+	      	<input ng-show="isAuthorSearch" type="text" class="form-control" placeholder="Search author" ng-model="search.author">
+	    </div>
     </div>
+
+    
 </nav>
 
 <div class="row">
-	<div ng-repeat="image in images | filter:search.input" class="col-sm-6 col-md-4">
+	<div ng-repeat="image in images | filter: search" class="col-sm-6 col-md-4">
 		<div class="thumbnail">
 			<img ng-src="{{image.url}}">
 			<div class="caption">
