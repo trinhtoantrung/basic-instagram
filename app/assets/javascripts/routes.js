@@ -1,7 +1,7 @@
 angular.module('BasicInstagram').config(function($routeProvider) {
 	$routeProvider
 	.when('/myinstagram', {
-		templateUrl: '../assets/templates/test.html',
+		templateUrl: '../assets/templates/index.html',
 		controller: "MyInstagramController",
 		access: false
 	})
@@ -21,6 +21,12 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 	.when('/myinstagram/profile', {
 		templateUrl: '../assets/templates/profile/profile.html',
 		controller: 'MyProfileController',
+		access: false
+	})
+
+	.when('/myinstagram/upload', {
+		templateUrl: '../assets/templates/upload/upload.html',
+		controller: 'MyUploadController',
 		access: false
 	})
 
