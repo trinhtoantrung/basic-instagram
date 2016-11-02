@@ -35,11 +35,11 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 		console.log("Update profile..");
 		console.log("Submit updateProfile form", $scope.userProfile);
 
-    $scope.userProfile.$update().then(function() {
+	    $scope.userProfile.$update().then(function() {
 
-    }).finally(function () {
-    	$scope.isSubmitting = false;
-    	$location.path("/myinstagram");
-    });
+	    }).finally(function () {
+	    	$scope.isSubmitting = false;
+	    	$location.path("/myinstagram");
+	    });
 	}
 });
