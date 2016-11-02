@@ -40,9 +40,11 @@
 				<h3 class="text-info">{{image.title}}</h3>
 				<h4><small class="text-info">By {{image.author}}</small></h4>
 				<h4><small class="text-info">{{image.date | date:'medium'}}</small></h4>
-				<p>Likes: {{image.countLikes()}}</p>
-				<p>Dislikes: {{image.countDislikes()}}</p>
-				<span class="label label-info">{{image.category}}</span>
+				<p>
+					<a class="btn btn-primary">Likes <span class="badge">{{image.countLikes()}}</span></a>
+					<a class="btn btn-warning">Dislikes <span class="badge">{{image.countDislikes()}}</span></a> <br>
+				</p>
+				<p><span class="label label-info">{{image.category}}</span></p>	
 			</div>
 		</div>
 	</div>
