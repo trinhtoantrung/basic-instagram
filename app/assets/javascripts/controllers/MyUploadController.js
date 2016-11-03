@@ -44,23 +44,23 @@ angular.module("BasicInstagram").controller("MyUploadController", function($scop
 			if ($scope.myFile) {
 				$scope.data.url = "/images/" + UserLogin.userName + "_" + timestamp + ".jpg";
 				console.log("Upload new image", $scope.data.url);
-				// FileUpload.uploadFileToUrl($scope.myFile, $scope.data.url, "image");
+				FileUpload.uploadFileToUrl($scope.myFile, $scope.data.url, "image");
 			}
 			console.log($scope.data);
 		} else {
-			console.log("Upload image", $scope.uploadError, $scope.uploadErrorMessage);
+			console.log("Upload image..", $scope.uploadError, $scope.uploadErrorMessage);
 		}
 		
 
-	/*	console.log("Update profile..");
-		console.log("Submit updateProfile form", $scope.userProfile);
+		console.log("Upload image..");
+		console.log("Submit upload form", $scope.data);
 
-	    $scope.userProfile.$update().then(function() {
+	    $scope.data.getService().$save().then(function() {
 
 	    }).finally(function () {
 	    	$scope.isSubmitting = false;
 	    	$location.path("/myinstagram");
-	    });*/
+	    });
 
 	}
 });

@@ -27,5 +27,12 @@ module.exports = {
 
   all: function() {
     return images;
+  },
+
+  create: function(image) {
+    images.push(image);
+    console.log("Save image", image);
+    updateToDatabase(images);
+    return image;
   }
 }
