@@ -25,11 +25,12 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 		$scope.isSubmitting = true;
 		if ($scope.myFile) {
 			var timestamp = new Date().getTime();
+			var fileName = $scope.userProfile.userName + "_" + timestamp + ".jpg";
 			$scope.userProfile.avatar = "/avatars/" + $scope.userProfile.userName + "_" +
 				timestamp + ".jpg";
 
 			console.log("Upload new avatar", $scope.userProfile.avatar);
-			FileUpload.uploadFileToUrl($scope.myFile, $scope.userProfile.avatar, "avatar");
+			FileUpload.uploadFileToUrl($scope.myFile, fileName, "avatar");
 		}
 
 		console.log("Update profile..");

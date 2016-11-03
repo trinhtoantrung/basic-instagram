@@ -19,7 +19,7 @@ angular.module('BasicInstagram').controller('MyRegisterController',
 	});
 
 // Test
-	$scope.uploadFile = function(){
+/*	$scope.uploadFile = function(){
        var file = $scope.myFile;
 
        var timestamp = new Date().getTime();
@@ -30,16 +30,17 @@ angular.module('BasicInstagram').controller('MyRegisterController',
        fileName = "image_test_" + timestamp + ".jpg";
        FileUpload.uploadFileToUrl(file, fileName, "image");
 
-    };
+    };*/
 
 	$scope.submitRegister = function() {
 		if ($scope.myFile) {
 			console.log("Upload avatar")
 			var timestamp = new Date().getTime();
+			var fileName = $scope.registrationData.userName + "_" + timestamp + ".jpg";
 			$scope.registrationData.avatar = "/avatars/" + $scope.registrationData.userName + "_" +
 				timestamp + ".jpg";
 
-			FileUpload.uploadFileToUrl($scope.myFile, $scope.registrationData.avatar, "avatar");
+			FileUpload.uploadFileToUrl($scope.myFile, fileName, "avatar");
 		}
 
 		console.log("Submit registration form", $scope.registrationData);

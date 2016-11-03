@@ -17,8 +17,8 @@ module.exports = function(app){
 
     fs.readFile(req.file.path, function (err, data) {
       fs.writeFile(file, data, function (err) {
-         if( err ){
-            console.log( err );
+         if(err){
+            console.log(err);
             } else {
                response = {
                   message:'File uploaded successfully',

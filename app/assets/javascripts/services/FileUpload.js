@@ -1,5 +1,5 @@
 angular.module('BasicInstagram').service('FileUpload', function FileUploadService($http) {
-  var uploadUrl = "http://localhost:8383/fileupload";
+  var uploadUrl = "/fileupload";
 
    this.uploadFileToUrl = function(file, fileName, type){
       var fd = new FormData();
