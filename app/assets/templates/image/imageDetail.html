@@ -1,0 +1,33 @@
+<h2 class="text-info"> Image Detail </h2>
+<div class="row">
+	<div class="col-sm-6">
+		<div class="thumbnail">
+			<img ng-src="{{image.url}}">
+		</div>
+	</div>
+
+	<div class="col-sm-6 well well-lg">
+		<h3 class="text-info">{{image.title}}</h3>
+		<h4 class="text-info">By {{image.author}}</h4>
+		<h4 class="text-info">{{image.date | date: 'medium'}}</h4>
+		<button class="btn btn-primary" type="button">
+			Likes <span class="badge">{{image.countLikes()}}</span>
+		</button>
+
+		<button class="btn btn-warning" type="button">
+			Dislikes <span class="badge">{{image.countDislikes()}}</span>
+		</button>
+	</div>
+</div>
+
+<div class="row well well-sm" ng-repeat="comment in image.comments">
+	<div class="col-sm-12" class="media">
+		<div class="media-left">
+	    	<img class="media-object" src="/images/gundam3.jpg" height="64" width="64">
+	  	</div>
+	  	<div class="media-body">
+	    	<h4 class="media-heading text-muted" >{{comment.author}} | <small>{{comment.date | date: 'medium'}}</small></h4>
+	    	{{comment.content}}
+	 	</div>
+	</div>
+</div>

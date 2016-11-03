@@ -8,7 +8,11 @@ var Image = require('../models/images');
 
 module.exports = function(app){
   app.get('/images', function(req, res){
-    res.json(Image.all());
+    if(Object.keys(req.query).length === 0) {
+      res.json(Image.all());
+    } else {
+      res.json(Image.get(req.query.key, req.query.value) || {});
+    }
   });
 
   app.post('/images', function(req, res) {

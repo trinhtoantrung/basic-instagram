@@ -30,6 +30,12 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 		access: false
 	})
 
+	.when('/myinstagram/:date', {
+		templateUrl: '../assets/templates/image/imageDetail.html',
+		controller: 'MyImageDetailController',
+		access: false
+	})
+
 	.otherwise({redirectTo: '/myinstagram'});
 
 }).run(function($rootScope, UserLogin, $location) {

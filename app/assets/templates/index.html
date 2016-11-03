@@ -33,8 +33,8 @@
 </div>
 
 <div class="row">
-	<a href="#/myinstagram/upload">
-		<div ng-repeat="image in images | filter: search | CategoryImageFilter: category | orderBy: short[0]: (sort[1] === 'ASC' ? false: true): myOrderComparator" class="col-sm-6 col-md-4">
+	<div ng-repeat="image in images | filter: search | CategoryImageFilter: category | orderBy: short[0]: (sort[1] === 'ASC' ? false: true): myOrderComparator" class="col-sm-6 col-md-4">
+		<a ng-href="#/myinstagram/{{image.date}}">
 			<div class="thumbnail">
 				<img ng-src="{{image.url}}">
 				<div class="caption">
@@ -48,6 +48,6 @@
 					<p><span class="label label-info">{{image.category}}</span></p>	
 				</div>
 			</div>
-		</div>
-	</a>
+		</a>
+	</div>
 </div>
