@@ -27,6 +27,6 @@
 		</select>
 	</fieldset>
 
-	<button class="btn btn-primary" type="submit">Upload</button>
+	<input class="btn btn-primary" type="submit" value="{{isSubmitting ? 'Uploading..' : 'Upload'}}" ng-disabled="isSubmitting">
     <a href="#/myinstagram" class="btn btn-default" type="button">Cancel</a>
 </form>

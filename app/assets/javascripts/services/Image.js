@@ -1,4 +1,4 @@
-angular.module("BasicInstagram").factory("Image", function ImageFactory($resource, $http){
+angular.module("BasicInstagram").factory("Image", function ImageFactory($resource){
 	console.log("Load ImageFactory");
 
 	var serviceUrl = "/images"
@@ -27,7 +27,7 @@ angular.module("BasicInstagram").factory("Image", function ImageFactory($resourc
 	};
 
 	Image.prototype.getService  = function() {
-		return $resource("/images");
+		return $resource('/images');
 	}
 
 	Image.prototype.countLikes = function() {

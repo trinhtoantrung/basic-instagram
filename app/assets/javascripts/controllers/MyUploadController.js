@@ -1,4 +1,4 @@
-angular.module("BasicInstagram").controller("MyUploadController", function($scope, UserLogin, Categories, 
+angular.module("BasicInstagram").controller("MyUploadController", function($scope, $location, UserLogin, Categories, 
 		Image, FileUpload) {
 	console.log("Load MyUploadController");
 
@@ -49,16 +49,13 @@ angular.module("BasicInstagram").controller("MyUploadController", function($scop
 				console.log($scope.imageFile);
 				FileUpload.uploadFileToUrl($scope.imageFile, fileName, "image");
 			}
+
+			$scope.data.getService().save($scope.data, function() {
+				$scope.isSubmitting = false;
+	    		$location.path("/myinstagram");
+			});
 		} else {
 			console.log("Upload image..", $scope.uploadError, $scope.uploadErrorMessage);
 		}
-
-	  /*  $scope.data.getService().$save().then(function() {
-
-	    }).finally(function () {
-	    	$scope.isSubmitting = false;
-	    	$location.path("/myinstagram");
-	    });*/
-
 	}
 });
