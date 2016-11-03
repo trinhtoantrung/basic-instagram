@@ -44,7 +44,7 @@ angular.module("BasicInstagram").controller("MyUploadController", function($scop
 			if ($scope.myFile) {
 				$scope.data.url = "/images/" + UserLogin.userName + "_" + timestamp + ".jpg";
 				console.log("Upload new image", $scope.data.url);
-				// FileUpload.uploadFileToUrl($scope.myFile, $scope.userProfile.userName, timestamp);
+				// FileUpload.uploadFileToUrl($scope.myFile, $scope.data.url, "image");
 			}
 			console.log($scope.data);
 		} else {

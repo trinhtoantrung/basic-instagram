@@ -1,4 +1,8 @@
 var _ = require('lodash');
+var fs = require("fs");
+var multer  = require('multer');
+var upload = multer({dest: 'uploads/images'});
+var type = upload.single('file');
 
 var Image = require('../models/images');
 

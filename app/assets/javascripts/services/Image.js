@@ -1,4 +1,4 @@
-angular.module("BasicInstagram").factory("Image", function ImageFactory($resource){
+angular.module("BasicInstagram").factory("Image", function ImageFactory($resource, $http){
 	console.log("Load ImageFactory");
 
 	var serviceUrl = "/images"
