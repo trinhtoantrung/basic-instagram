@@ -1,4 +1,4 @@
-angular.module("BasicInstagram").factory("Image", function ImageFactory($resource){
+angular.module("BasicInstagram").factory("Image", function ImageFactory($resource, Comment){
 	console.log("Load ImageFactory");
 
 	var serviceUrl = "/images"
@@ -12,7 +12,12 @@ angular.module("BasicInstagram").factory("Image", function ImageFactory($resourc
 			this.date = imageData.date;
 			this.likes = imageData.likes;
 			this.dislikes = imageData.dislikes;
-			this.comments = imageData.comments;
+
+			this.comments = [];
+			for (var i=0; i<imageData.comments.length; i++) {
+				this.comments.push(new Comment(imageData.comments[i]));
+			}
+
 		} else {
 			this.url = "";
 			this.author = "";
@@ -23,7 +28,7 @@ angular.module("BasicInstagram").factory("Image", function ImageFactory($resourc
 			this.dislikes = [];
 			this.comments = [];
 		}
-		
+
 	};
 
 	Image.prototype.getService  = function() {
