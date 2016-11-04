@@ -23,7 +23,7 @@
 <div class="row well well-sm" ng-repeat="comment in image.comments">
 	<div class="col-sm-12" class="media">
 		<div class="media-left">
-	    	<img class="media-object" src="/images/gundam3.jpg" height="64" width="64">
+	    	<img class="media-object" src="{{getAvatarUrl(comment, users)}}" height="64" width="64">
 	  	</div>
 	  	<div class="media-body">
 	    	<h4 class="media-heading text-muted" >{{comment.author}} | <small>{{comment.date | date: 'medium'}}</small></h4>

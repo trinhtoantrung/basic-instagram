@@ -4,7 +4,6 @@ var User = require('../models/users');
 
 module.exports = function(app){
   app.get('/users', function(req, res){
-    console.log("get all users");
     res.json(User.all());
   });
 
@@ -29,8 +28,6 @@ module.exports = function(app){
     app.put('/users', function(req, res) {
     // Add a delay here to simulate the delay of a live server
     // So things like button isSubmitting states can be demonstrated
-    console.log(req.body);
-
     setTimeout(function(){
       res.json(User.update(req.body));
     },1000)
