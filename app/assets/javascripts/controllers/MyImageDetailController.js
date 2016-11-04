@@ -13,16 +13,15 @@ angular.module('BasicInstagram').controller('MyImageDetailController', function(
 	$scope.userLogin.userName = UserLogin.userName;
 
 	$scope.getAvatarUrl = function(pComment, pUsers) {
-		console.log("author ", pComment.author);
 		for (var i=0; i<pUsers.length; i++) {
-			console.log("userName ", pUsers[i].userName);
-
 			if (pUsers[i].userName === pComment.author){
-				console.log(pUsers.avatar)
 				return pUsers[i].avatar;
 			}
 		}
+		return "/avatars/avatar.png";
+	}
 
-		return "../assets/styles/img/avatar.png";
+	$scope.addNewComment = function() {
+		console.log($scope.newCommentContent);
 	}
 });

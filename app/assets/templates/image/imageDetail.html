@@ -23,7 +23,7 @@
 <div class="row well well-sm" ng-repeat="comment in image.comments">
 	<div class="col-sm-12" class="media">
 		<div class="media-left">
-	    	<img class="media-object" src="{{getAvatarUrl(comment, users)}}" height="64" width="64">
+	    	<img class="media-object" ng-src="{{getAvatarUrl(comment, users)}}" height="64" width="64">
 	  	</div>
 	  	<div class="media-body">
 	    	<h4 class="media-heading text-muted" >{{comment.author}} | <small>{{comment.date | date: 'medium'}}</small></h4>
@@ -38,8 +38,15 @@
 	    	<img class="media-object" src="/images/gundam3.jpg" height="64" width="64">
 	  	</div>
 	  	<div class="media-body">
-	    	<h4 class="media-heading text-info">{{userLogin.userName}}</h4>
-				<textarea placeholder="write your comment"> </textarea>
+	  		<form name="newCommentForm" ng-submit="newCommentForm.$valid && addNewComment()" novalidate>
+		    	<h4 class="media-heading text-info">{{userLogin.userName}}</h4>
+	    	    <fieldset class="form-group">
+					<textarea class="form-control" placeholder="write your comment" required ng-model="newCommentContent"></textarea>
+				</fieldset>
+			    <fieldset class="form-group">
+					<input type="submit" class="btn btn-primary" value="Submit">
+				</fieldset>
+			</form>
 	 	</div>
 	</div>
 </div>
