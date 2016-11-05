@@ -38,14 +38,31 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 
 	.otherwise({redirectTo: '/myinstagram'});
 
-}).run(function($rootScope, UserLogin, $location) {
+}).run(function($rootScope, UserLogin, $location, $cookies) {
 	$rootScope.$on("$routeChangeStart", function(event, nextRoute, currentRoute) {
-		console.log("Checking user login - isLogged", UserLogin.isLogged);
-		console.log("Next route access", nextRoute.access);
-		if (!UserLogin.isLogged && nextRoute.access === false) {
-			console.log("Go to login page");
-			event.preventDefault();
-			$location.path('/myinstagram/login');
+
+		console.log(UserLogin);
+
+		// console.log("Checking user login - isLogged", UserLogin.isLogged);
+		// console.log("Next route access", nextRoute.access);
+		// if (!UserLogin.isLogged && nextRoute.access === false) {
+		// 	console.log("Go to login page");
+		// 	event.preventDefault();
+		// 	$location.path('/myinstagram/login');
+		// }
+
+		if (data = $cookies.getObject('userLogin')) {
+			console.log('saved login user in cookied before');
+			UserLogin.userName = data.userName;
+			UserLogin.isLogged = data.isLogged;
+			UserLogin.avatar = data.avatar;
+			UserLogin.rememberMe = data.rememberMe;
+			console.log(UserLogin);
+		} else if (UserLogin.isLogged) {
+			console.log("User login is logged without rememberme");
+		} else {
+				console.log("Go to login page");
+				$location.path('/myinstagram/login');
 		}
 	});
 });

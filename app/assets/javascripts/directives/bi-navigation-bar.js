@@ -3,7 +3,7 @@ angular.module('BasicInstagram').directive('biNavigationBar', function() {
 		replace: true,
 		restrict: "E",
 		templateUrl: "../assets/templates/directives/bi-navigation-bar.html",
-		controller: function($scope, UserLogin, $location) {
+		controller: function($scope, UserLogin, $location, $cookies) {
 			console.log("Controller of navigation bar is loaded");
 
 			$scope.logout = function() {
@@ -12,6 +12,10 @@ angular.module('BasicInstagram').directive('biNavigationBar', function() {
 				UserLogin.avatar = '';
 				UserLogin.rememberMe = false;
 				console.log("Logout - DONE");
+
+				console.log($cookies.getObject("userLogin"));
+				$cookies.remove("userLogin");
+				console.log($cookies.getObject("userLogin"));
 
 				$location.path('/myinstagram/login');
 			};

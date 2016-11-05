@@ -5,6 +5,8 @@ angular.module("BasicInstagram").controller("MyProfileController", function($sco
 	$scope.countries = [];
 	$scope.isSubmitting = false;
 
+	console.log(UserLogin);
+
 	User.get({key: 'userName', value: UserLogin.userName}).$promise.then(function(user) {
 		$scope.userProfile = user;
 		$scope.avatarUrl = $scope.userProfile["avatar"];

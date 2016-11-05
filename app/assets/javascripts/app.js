@@ -1,1 +1,1 @@
-angular.module('BasicInstagram', ['ngRoute','ngResource']);
+angular.module('BasicInstagram', ['ngRoute','ngResource','ngCookies']);

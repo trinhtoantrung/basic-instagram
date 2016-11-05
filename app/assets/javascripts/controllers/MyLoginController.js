@@ -1,9 +1,10 @@
-angular.module("BasicInstagram").controller("MyLoginController", function($scope, UserLogin, $location) {
+angular.module("BasicInstagram").controller("MyLoginController", function($scope, UserLogin, $location, $cookies) {
   console.log("MyLoginController loaded");
 
   console.log((new Date()).getTime());
 
   $scope.loginError = false;
+  $scope.rememberMe = false;
 
   $scope.login = function() {
   	console.log("Try to login");
@@ -19,8 +20,9 @@ angular.module("BasicInstagram").controller("MyLoginController", function($scope
         UserLogin.avatar = user.avatar;
   			UserLogin.rememberMe = $scope.rememberMe;
 
-        console.log(UserLogin);
-
+        if ($scope.rememberMe) {
+          $cookies.putObject("userLogin", UserLogin);
+        }
   			$location.path("/myinstagram");
   		} else {
   			$scope.loginError = true;
