@@ -9,3 +9,11 @@
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
 	border-color: transparent;
 }
+
+.thumbnail{
+    height: 500px;
+}
+
+.thumbnail a img {
+  height: 250px;
+}
