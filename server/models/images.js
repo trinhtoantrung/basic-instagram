@@ -34,5 +34,18 @@ module.exports = {
     console.log("Save image", image);
     updateToDatabase(images);
     return image;
+  },
+
+  update: function(image) {
+    var updateImage;
+    for(var i=0, l=images.length; i < l; i++) {
+      if(images[i].url === image.url){
+        _.assign(images[i], image);
+        updateImage = images[i];
+        break;
+      }
+    }
+    updateToDatabase(images);
+    return updateImage;
   }
 }

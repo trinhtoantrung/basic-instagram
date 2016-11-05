@@ -32,7 +32,9 @@ angular.module("BasicInstagram").factory("Image", function ImageFactory($resourc
 	};
 
 	Image.prototype.getService  = function() {
-		return $resource('/images');
+		return $resource('/images', null, {
+			'update': {method: 'PUT'}
+		});
 	}
 
 	Image.prototype.countLikes = function() {
