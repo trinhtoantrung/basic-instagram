@@ -10,11 +10,11 @@
 		<h3 class="text-info">{{image.title}}</h3>
 		<h4 class="text-info">By {{image.author}}</h4>
 		<h4 class="text-info">{{image.date | date: 'medium'}}</h4>
-		<button class="btn btn-primary" type="button">
+		<button class="btn btn-primary" type="button" ng-click="like(image)">
 			Likes <span class="badge">{{image.countLikes()}}</span>
 		</button>
 
-		<button class="btn btn-warning" type="button">
+		<button class="btn btn-warning" type="button" ng-click="dislike(image)">
 			Dislikes <span class="badge">{{image.countDislikes()}}</span>
 		</button>
 	</div>

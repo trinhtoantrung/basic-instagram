@@ -3,7 +3,7 @@
 <div role="navigation" class="navbar navbar-default">
 	<div class="container-fluid">
 		<a class="btn btn-primary navbar-btn navbar-left" href="#/myinstagram/upload">Share new image</a>
-		
+
 		<div class="navbar-form navbar-left">
 		    <div class="input-group">
 		    	<div class="input-group-btn">
@@ -42,10 +42,10 @@
 					<h4><small class="text-info">By {{image.author}}</small></h4>
 					<h4><small class="text-info">{{image.date | date:'medium'}}</small></h4>
 					<p>
-						<a class="btn btn-primary">Likes <span class="badge">{{image.countLikes()}}</span></a>
-						<a class="btn btn-warning">Dislikes <span class="badge">{{image.countDislikes()}}</span></a> <br>
+						<a class="btn btn-primary" ng-click="like(image, 'like')">Likes <span class="badge">{{image.countLikes()}}</span></a>
+						<a class="btn btn-warning" ng-click="dislike(image)">Dislikes <span class="badge">{{image.countDislikes()}}</span></a> <br>
 					</p>
-					<p><span class="label label-info">{{image.category}}</span></p>	
+					<p><span class="label label-info">{{image.category}}</span></p>
 				</div>
 			</div>
 		</a>

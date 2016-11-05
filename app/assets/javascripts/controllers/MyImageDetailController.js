@@ -39,4 +39,56 @@ angular.module('BasicInstagram').controller('MyImageDetailController', function(
 		});
 
 	}
+
+	$scope.dislike = function(image) {
+		console.log(image);
+		console.log(UserLogin.userName);
+		var exist = false;
+		var pIndex = undefined;
+
+		for (var i=0; i<image.dislikes.length; i++) {
+			if (image.dislikes[i] === UserLogin.userName) {
+				exist = true;
+				pIndex = i;
+				break;
+			}
+		}
+
+		if (exist) {
+			image.dislikes.splice(pIndex, 1);
+		} else {
+			image.dislikes.push(UserLogin.userName);
+		}
+
+		// call API for updating here
+		image.getService().update(image).$promise.then(function(result){
+			console.log(result);
+		});
+	}
+
+	$scope.like = function(image) {
+		console.log(image);
+		console.log(UserLogin.userName);
+		var exist = false;
+		var pIndex = undefined;
+
+		for (var i=0; i<image.likes.length; i++) {
+			if (image.likes[i] === UserLogin.userName) {
+				exist = true;
+				pIndex = i;
+				break;
+			}
+		}
+
+		if (exist) {
+			image.likes.splice(pIndex, 1);
+		} else {
+			image.likes.push(UserLogin.userName);
+		}
+
+		// call API for updating here
+		image.getService().update(image).$promise.then(function(result){
+			console.log(result);
+		});
+	}
 });
