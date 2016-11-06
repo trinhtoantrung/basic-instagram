@@ -3,14 +3,17 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	console.log("Load MyInstagramController");
 
 	$scope.images = [];
+	$scope.lazyImages = [];
 	$scope.search = {};
 
 	$scope.categories = Categories.data;
 	$scope.category = "All";
 
-	$scope.sorts = [["category", "ASC"], ["category", "DESC"], ["date", "ASC"], ["date", "DESC"]];
+	$scope.sorts = [["NONE", "NONE"], ["category", "ASC"], ["category", "DESC"], ["date", "ASC"], ["date", "DESC"]];
 	$scope.sort = $scope.sorts[0];
 	$scope.sortBy = "+category";
+
+	$scope.infiniteScrollDisable = true;
 
 	$scope.chooseCategory = function(pCategory) {
 		$scope.category = pCategory;
@@ -99,6 +102,30 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 			var image = new Image(data[i]);
 			$scope.images.push(image);
 		}
+
+		if(data[0]) {
+			$scope.lazyImages.push(data[0]);
+		}
+
+		if(data[1]) {
+			$scope.lazyImages.push(data[1]);
+		}
 	});
+
+
+  $scope.loadMore = function() {
+    console.log("load more ..");
+		var nextIndex = $scope.lazyImages.length;
+		for (var i=nextIndex; i<nextIndex + 2; i++) {
+			if($scope.images[i]) {
+				$scope.lazyImages.push($scope.images[i]);
+			}
+		}
+  };
+
+	$scope.enableInfiniteScroll = function() {
+		console.log("enable infinite scroll");
+		$scope.loadMore();
+	}
 
 })
