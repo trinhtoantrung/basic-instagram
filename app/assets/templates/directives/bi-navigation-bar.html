@@ -1,7 +1,7 @@
 <div class='navbar navbar-default navbar-static-top'>
 	<div class='container' role='navigation'>
 		<div class='navbar-header'>
-			<a href='#' class='navbar-brand'>Basic Instagram</a>
+			<a href='#' class='navbar-brand'>Basic Instagram {{userName()}}</a>
 
 			<button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='.navbar-collapse'>
 				<span class='sr-only'>Toggle navigation</span>
@@ -12,10 +12,10 @@
 		</div>
 
 		<ul class='nav navbar-nav navbar-right collapse navbar-collapse'>
-			<li><a href='#/myinstagram/login'>Login</a></li>
-			<li><a href='#' ng-click="logout()">Logout</a></li>
-			<li><a href='#/myinstagram/profile'>Profile</a></li>
-			<li><a href='#/myinstagram/register'>Register</a></li>
+			<li><a ng-show="!isLogged()" href='#/myinstagram/login'>Login</a></li>
+			<li><a ng-show="isLogged()" href='#' ng-click="logout()">Logout</a></li>
+			<li><a ng-show="isLogged()" href='#/myinstagram/profile'>Profile</a></li>
+			<li><a ng-show="!isLogged()" href='#/myinstagram/register'>Register</a></li>
 		</ul>
 	</div>
 </div>

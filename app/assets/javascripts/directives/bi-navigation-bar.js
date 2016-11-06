@@ -6,6 +6,17 @@ angular.module('BasicInstagram').directive('biNavigationBar', function() {
 		controller: function($scope, UserLogin, $location, $cookies) {
 			console.log("Controller of navigation bar is loaded");
 
+			console.log(UserLogin);
+
+			$scope.isLogged = function() {
+				// console.log("isLogged ", UserLogin);
+				return UserLogin.isLogged;
+			}
+
+			$scope.userName = function() {
+				return (UserLogin.isLogged)?"|| " + UserLogin.userName:"";
+			}
+
 			$scope.logout = function() {
 				UserLogin.userName = '';
 				UserLogin.isLogged = false;

@@ -57,12 +57,15 @@ angular.module('BasicInstagram').config(function($routeProvider) {
 			UserLogin.isLogged = data.isLogged;
 			UserLogin.avatar = data.avatar;
 			UserLogin.rememberMe = data.rememberMe;
-			console.log(UserLogin);
 		} else if (UserLogin.isLogged) {
 			console.log("User login is logged without rememberme");
 		} else {
-				console.log("Go to login page");
-				$location.path('/myinstagram/login');
+				if (nextRoute.access) {
+					
+				} else {
+					console.log("Go to login page");
+					$location.path('/myinstagram/login');
+				}
 		}
 	});
 });

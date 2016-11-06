@@ -104,11 +104,11 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 		}
 
 		if(data[0]) {
-			$scope.lazyImages.push(data[0]);
+			$scope.lazyImages.push(new Image(data[0]));
 		}
 
 		if(data[1]) {
-			$scope.lazyImages.push(data[1]);
+			$scope.lazyImages.push(new Image(data[1]));
 		}
 	});
 
