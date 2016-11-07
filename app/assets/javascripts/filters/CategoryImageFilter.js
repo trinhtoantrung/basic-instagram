@@ -12,7 +12,6 @@ angular.module("BasicInstagram").filter("CategoryImageFilter", function(){
 					newImages.push(images[i]);
 				}
 			}
-
 			return newImages;
 		} else {
 			return images;

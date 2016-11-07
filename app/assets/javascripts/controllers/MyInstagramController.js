@@ -16,10 +16,16 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	$scope.infiniteScrollDisable = true;
 
 	$scope.chooseCategory = function(pCategory) {
+		console.log("chooseCategory");
 		$scope.category = pCategory;
+		
+		$scope.lazyImages = [];
+		$scope.loadMore();
 	}
 
 	$scope.orderBy = function(sort) {
+		console.log("orderBy");
+
 		$scope.sort = sort;
 		if (sort) {
 			if (sort[1] === "ASC") {
@@ -37,8 +43,8 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	}
 
 	$scope.dislike = function(image) {
-		console.log(image);
-		console.log(UserLogin.userName);
+		console.log("dislike");
+
 		var exist = false;
 		var pIndex = undefined;
 
@@ -63,8 +69,8 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	}
 
 	$scope.like = function(image) {
-		console.log(image);
-		console.log(UserLogin.userName);
+		console.log("like");
+
 		var exist = false;
 		var pIndex = undefined;
 
@@ -113,12 +119,29 @@ angular.module('BasicInstagram').controller('MyInstagramController', function($s
 	});
 
 
-  $scope.loadMore = function() {
-    console.log("load more ..");
-		var nextIndex = $scope.lazyImages.length;
-		for (var i=nextIndex; i<nextIndex + 2; i++) {
-			if($scope.images[i]) {
+	// just add more 2 items
+  	$scope.loadMore = function() {
+    	console.log("load more ..");
+
+    	var addNumber = 0;
+		for (var i=0; i<$scope.images.length; i++) {
+			var addFlag = true;
+			for (var j=0; j<$scope.lazyImages.length; j++) {
+				if ($scope.images[i].url === $scope.lazyImages[j].url) {
+					addFlag = false;
+					break;
+				}
+			}
+
+			if (addFlag && ($scope.category === "All" || $scope.images[i].category === $scope.category)) {
+				addFlag = true;
+			} else {
+				addFlag = false;
+			}
+
+			if (addFlag && addNumber<2) {
 				$scope.lazyImages.push($scope.images[i]);
+				addNumber ++;
 			}
 		}
   };
